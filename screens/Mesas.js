@@ -8,7 +8,9 @@ export default function Mesas({ ocupado, numero, navigation }) {
       <View style={styles.container}>
         <View
           style={styles.mesas}
-          onTouchEnd={() => navigation.navigate("Cardapio")}
+          onTouchEnd={
+            () => ocupado ? navigation.navigate("PedidoFeito") : navigation.navigate("Cardapio")
+          }
         >
           <Text style={styles.titulo_mesa}>Mesa {numero}</Text>
           <MaterialCommunityIcons

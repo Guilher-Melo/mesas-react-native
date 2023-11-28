@@ -1,8 +1,7 @@
-// Importações necessárias do React Native
 import React from "react";
-import { View, Text, StyleSheet, StatusBar } from "react-native";
+import { View, Text, StyleSheet, StatusBar, TouchableOpacity } from "react-native";
 
-// Componente funcional CardapioItem para exibir itens do cardápio
+
 const CardapioItem = ({ nome, preco }) => (
   <View style={styles.itemContainer}>
     <Text style={styles.itemNome}>{nome}</Text>
@@ -10,26 +9,28 @@ const CardapioItem = ({ nome, preco }) => (
   </View>
 );
 
-// Componente principal Cardapio
-const Cardapio = () => (
+
+const Cardapio = ({navigation}) => (
   <View style={styles.container}>
     <Text style={styles.titulo}>Cardápio</Text>
 
-    {/* Hambúrgueres */}
-    <CardapioItem nome="Hambúrguer 1" preco="R$ 15,00" />
-    <CardapioItem nome="Hambúrguer 2" preco="R$ 18,00" />
-    <CardapioItem nome="Hambúrguer 3" preco="R$ 20,00" />
-    <CardapioItem nome="Hambúrguer 4" preco="R$ 22,00" />
-    <CardapioItem nome="Hambúrguer 5" preco="R$ 25,00" />
 
-    {/* Bebidas */}
-    <CardapioItem nome="Bebida 1" preco="R$ 5,00" />
-    <CardapioItem nome="Bebida 2" preco="R$ 7,00" />
-    <CardapioItem nome="Bebida 3" preco="R$ 10,00" />
+    <CardapioItem nome="Hambúrguer cheddar" preco="R$ 15,00" />
+    <CardapioItem nome="X-Egg" preco="R$ 18,00" />
+    <CardapioItem nome="X-Egg bacon" preco="R$ 20,00" />
+
+
+    <CardapioItem nome="Coca-Cola" preco="R$ 5,00" />
+    <CardapioItem nome="Guaraná" preco="R$ 7,00" />
+
+
+    <TouchableOpacity onPress={()=>navigation.navigate('RealizaPedido', { cardapioItens: ["Hambúrguer cheddar", "X-Egg", "X-Egg bacon", "Coca-Cola", "Guaraná"] })} style={styles.btn}>
+      <Text style={styles.textoBotao}>Ir para o pedido</Text>
+    </TouchableOpacity>
   </View>
 );
 
-// Estilos usando StyleSheet
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -47,7 +48,7 @@ const styles = StyleSheet.create({
   itemContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginBottom: 10,
+    marginBottom: 17,
     borderBottomWidth: 3,
   },
   itemNome: {
@@ -57,6 +58,16 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
   },
+  btn:{
+    backgroundColor: 'green',
+    padding: 10,
+    borderRadius: 7,
+  },
+  textoBotao: {
+    textAlign: 'center',
+    color: '#fff',
+    fontWeight:"bold"
+  }
 });
 
 export default Cardapio;

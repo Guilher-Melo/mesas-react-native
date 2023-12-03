@@ -7,7 +7,6 @@ const RealizaPedido = ({ route, navigation }) => {
   const [pedido, setPedido] = useState([]);
 
   const toggleItem = (item) => {
-    // Verifica se o item já está no pedido, se sim, remove, se não, adiciona
     const updatedPedido = pedido.includes(item)
       ? pedido.filter((pedidoItem) => pedidoItem !== item)
       : [...pedido, item];

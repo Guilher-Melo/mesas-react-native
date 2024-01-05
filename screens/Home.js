@@ -11,7 +11,7 @@ export function Home({navigation}) {
             </View>
             <View style={styles.areaBotao}>
                 <TouchableOpacity style={styles.botao} onPress={()=> navigation.navigate("MesasDistribuidas")}>
-                    <Text style={styles.textoBotao}>Veja as mesas disponíveis</Text>
+                    <Text style={styles.textoBotao}>Veja as mesas disponíveis!</Text>
                 </TouchableOpacity>
             </View>
         </View>
